@@ -1,0 +1,16 @@
+from django.forms import TextInput, ModelForm
+
+from the_weather.weather.models import City
+
+
+class CityForm(ModelForm):
+    class Meta:
+        model = City
+        fields = ['name']
+        # updates the input class to have the correct Bulma class and placeholder
+        widgets = {
+            'name': TextInput(attrs={
+                'class': 'input',
+                'placeholder': 'City Name'
+            }),
+        }
